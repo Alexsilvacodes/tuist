@@ -160,7 +160,7 @@ extension RunAction {
                             executable: TargetReference? = nil,
                             arguments: Arguments? = nil) -> RunAction
     {
-        RunAction(
+        .runAction(
             configuration: configuration,
             executable: executable,
             arguments: arguments
