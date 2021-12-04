@@ -15,16 +15,15 @@ public struct RunAction: Equatable, Codable {
 
     // MARK: - Init
 
-    public init(
-        configurationName: String,
-        preActions: [ExecutionAction] = [],
-        postActions: [ExecutionAction] = [],
-        executable: TargetReference?,
-        filePath: AbsolutePath?,
-        arguments: Arguments?,
-        options: RunActionOptions = .init(),
-        diagnosticsOptions: Set<SchemeDiagnosticsOption>
-    ) {
+    public init(configurationName: String,
+                preActions: [ExecutionAction] = [],
+                postActions: [ExecutionAction] = [],
+                executable: TargetReference?,
+                filePath: AbsolutePath?,
+                arguments: Arguments?,
+                options: RunActionOptions = .init(),
+                diagnosticsOptions: Set<SchemeDiagnosticsOption>)
+    {
         self.configurationName = configurationName
         self.preActions = preActions
         self.postActions = postActions

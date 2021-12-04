@@ -11,13 +11,12 @@ public struct ProfileAction: Equatable, Codable {
 
     // MARK: - Init
 
-    public init(
-        configurationName: String,
-        preActions: [ExecutionAction] = [],
-        postActions: [ExecutionAction] = [],
-        executable: TargetReference? = nil,
-        arguments: Arguments? = nil
-    ) {
+    public init(configurationName: String,
+                preActions: [ExecutionAction] = [],
+                postActions: [ExecutionAction] = [],
+                executable: TargetReference? = nil,
+                arguments: Arguments? = nil)
+    {
         self.configurationName = configurationName
         self.preActions = preActions
         self.postActions = postActions

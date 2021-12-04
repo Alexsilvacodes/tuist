@@ -23,15 +23,14 @@ public struct RunAction: Equatable, Codable {
     /// Diagnostics options.
     public let diagnosticsOptions: [SchemeDiagnosticsOption]
 
-    init(
-        configuration: ConfigurationName,
-        preActions: [ExecutionAction] = [],
-        postActions: [ExecutionAction] = [],
-        executable: TargetReference? = nil,
-        arguments: Arguments? = nil,
-        options: RunActionOptions = .options(),
-        diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker]
-    ) {
+    init(configuration: ConfigurationName,
+         preActions: [ExecutionAction] = [],
+         postActions: [ExecutionAction] = [],
+         executable: TargetReference? = nil,
+         arguments: Arguments? = nil,
+         options: RunActionOptions = .options(),
+         diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker])
+    {
         self.configuration = configuration
         self.preActions = preActions
         self.postActions = postActions
@@ -51,15 +50,14 @@ public struct RunAction: Equatable, Codable {
     ///   - options: Run action options.
     ///   - diagnosticsOptions: Diagnostics options.
     /// - Returns: Run action.
-    public static func runAction(
-        configuration: ConfigurationName = .debug,
-        preActions: [ExecutionAction] = [],
-        postActions: [ExecutionAction] = [],
-        executable: TargetReference? = nil,
-        arguments: Arguments? = nil,
-        options: RunActionOptions = .options(),
-        diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker]
-    ) -> RunAction {
+    public static func runAction(configuration: ConfigurationName = .debug,
+                                 preActions: [ExecutionAction] = [],
+                                 postActions: [ExecutionAction] = [],
+                                 executable: TargetReference? = nil,
+                                 arguments: Arguments? = nil,
+                                 options: RunActionOptions = .options(),
+                                 diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker]) -> RunAction
+    {
         return RunAction(
             configuration: configuration,
             preActions: preActions,
