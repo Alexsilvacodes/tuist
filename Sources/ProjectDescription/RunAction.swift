@@ -23,35 +23,14 @@ public struct RunAction: Equatable, Codable {
     /// Diagnostics options.
     public let diagnosticsOptions: [SchemeDiagnosticsOption]
 
-    @available(*, deprecated, renamed: "runAction")
     init(
         configuration: ConfigurationName,
+        preActions: [ExecutionAction] = [],
+        postActions: [ExecutionAction] = [],
         executable: TargetReference? = nil,
         arguments: Arguments? = nil,
         options: RunActionOptions = .options(),
-        diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker],
-        preActions: [ExecutionAction] = [],
-        postActions: [ExecutionAction] = []
-    ) {
-        self = Self.runAction(
-            configuration: configuration,
-            preActions: preActions,
-            postActions: postActions,
-            executable: executable,
-            arguments: arguments,
-            options: options,
-            diagnosticsOptions: diagnosticsOptions
-        )
-    }
-
-    private init(
-        configuration: ConfigurationName,
-        preActions: [ExecutionAction],
-        postActions: [ExecutionAction],
-        executable: TargetReference?,
-        arguments: Arguments?,
-        options: RunActionOptions,
-        diagnosticsOptions: [SchemeDiagnosticsOption]
+        diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker]
     ) {
         self.configuration = configuration
         self.preActions = preActions
@@ -81,7 +60,7 @@ public struct RunAction: Equatable, Codable {
         options: RunActionOptions = .options(),
         diagnosticsOptions: [SchemeDiagnosticsOption] = [.mainThreadChecker]
     ) -> RunAction {
-        Self(
+        return RunAction(
             configuration: configuration,
             preActions: preActions,
             postActions: postActions,

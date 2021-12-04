@@ -10,17 +10,6 @@ public struct AnalyzeAction: Equatable, Codable {
     /// List of actions to be executed after running the Analyze action
     public let postActions: [ExecutionAction]
 
-    @available(*, deprecated, renamed: "analyzeAction")
-    init(
-        preActions: [ExecutionAction],
-        configuration: ConfigurationName,
-        postActions: [ExecutionAction]
-    ) {
-        self.configuration = configuration
-        self.preActions = preActions
-        self.postActions = postActions
-    }
-
     private init(
         configuration: ConfigurationName,
         preActions: [ExecutionAction],
@@ -42,7 +31,7 @@ public struct AnalyzeAction: Equatable, Codable {
         preActions: [ExecutionAction] = [],
         postActions: [ExecutionAction] = []
     ) -> AnalyzeAction {
-        Self(
+        return AnalyzeAction(
             configuration: configuration,
             preActions: preActions,
             postActions: postActions
